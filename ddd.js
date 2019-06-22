@@ -150,6 +150,36 @@ class Utilities {
           text: 'Accelerometro Z'
         },
         {
+          opcode: 'GyroX',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Giroscopio X'
+        },
+        {
+          opcode: 'GyroY',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Giroscopio Y'
+        },
+        {
+          opcode: 'GyroZ',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Giroscopio Z'
+        },
+        {
+          opcode: 'MagX',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Magnetometro X'
+        },
+        {
+          opcode: 'MagY',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Magnetometro Y'
+        },
+        {
+          opcode: 'MagZ',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Magnetometro Z'
+        },
+        {
           opcode: 'fetchFrom',
 
           blockType: Scratch.BlockType.REPORTER,
