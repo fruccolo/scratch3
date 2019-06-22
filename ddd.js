@@ -2,15 +2,13 @@ const icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAAESCAYAAAB3gfmJ
 class Utilities {
 
   constructor() {}
-
   getInfo() {
     return {
       id: 'roboable',
       name: 'Roboable',
-
       colour: '#F94C00',
-      colourSecondary: '#7CB342',
-      colourTertiary: '#689F38',
+      colourSecondary: '#7CB300',
+      colourTertiary: '#689FFF',
 
       menuIconURI: icon,
 
