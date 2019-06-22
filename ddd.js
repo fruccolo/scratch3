@@ -14,11 +14,9 @@ class Utilities {
       menuIconURI: icon,
 
       blocks: [
-
-
                 {
                     opcode: 'setPinMode',
-                    text: 'Imposta pin [PIN] come [MODALITA]',
+                    text: 'Imposta pin [PIN] come [MOD]',
                     blockType: BlockType.COMMAND,
                     arguments: {
                         PIN: {
@@ -26,7 +24,7 @@ class Utilities {
                             menu: 'getPin',
                             defaultValue: '1'
                         },
-                        MODALITA: {
+                        MOD: {
                             type: ArgumentType.STRING,
                             menu: 'setPinMode',
                             defaultValue: 'INPUT'
