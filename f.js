@@ -3,7 +3,7 @@ const BlockType = require('../../extension-support/block-type');
 const Cast = require('../../util/cast');
 const log = require('../../util/log');
 const nets = require('nets');
-const languageNames = require('scratch-translate-extension-languages');
+const languageNames = require('scratch-roboable-extension-languages');
 const formatMessage = require('format-message');
 
 /**
@@ -19,19 +19,19 @@ const icon = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATYAAAESCAYAAAB3gfmJ
 // eslint-disable-next-line max-len
 
 /**
- * The url of the translate server.
+ * The url of the roboable server.
  * @type {string}
  */
 const serverURL = 'http://localhost:3000';
 
 /**
- * How long to wait in ms before timing out requests to translate server.
+ * How long to wait in ms before timing out requests to roboable server.
  * @type {int}
  */
 const serverTimeoutMs = 10000; // 10 seconds (chosen arbitrarily).
 
 /**
- * Class for the translate block in Scratch 3.0.
+ * Class for the roboable block in Scratch 3.0.
  * @constructor
  */
 class Scratch3Roboable {
@@ -65,29 +65,29 @@ class Scratch3Roboable {
          * @type {string}
          * @private
          */
-        this._translateResult = '';
+        this._roboableResult = '';
 
         /**
-         * The language of the text most recently translated.
+         * The language of the text most recently roboabled.
          * @type {string}
          * @private
          */
-        this._lastLangTranslated = '';
+        this._lastLangroboabled = '';
 
         /**
-         * The text most recently translated.
+         * The text most recently roboabled.
          * @type {string}
          * @private
          */
-        this._lastTextTranslated = '';
+        this._lastTextroboabled = '';
     }
 
     /**
-     * The key to load & store a target's translate state.
+     * The key to load & store a target's roboable state.
      * @return {string} The key.
      */
     static get STATE_KEY () {
-        return 'Scratch.translate';
+        return 'Scratch.roboable';
     }
 
     /**
@@ -103,26 +103,26 @@ class Scratch3Roboable {
             name: formatMessage({
                 id: 'roboable.categoryName',
                 default: 'Roboable',
-                description: 'Name of extension that adds translate blocks'
+                description: 'Name of extension that adds roboable blocks'
             }),
             blockIconURI: blockIconURI,
             menuIconURI: menuIconURI,
             blocks: [
                 {
-                    opcode: 'getTranslate',
+                    opcode: 'getroboable',
                     text: formatMessage({
-                        id: 'translate.translateBlock',
-                        default: 'translate [WORDS] to [LANGUAGE]',
-                        description: 'translate some text to a different language'
+                        id: 'roboable.roboableBlock',
+                        default: 'roboable [WORDS] to [LANGUAGE]',
+                        description: 'roboable some text to a different language'
                     }),
                     blockType: BlockType.REPORTER,
                     arguments: {
                         WORDS: {
                             type: ArgumentType.STRING,
                             defaultValue: formatMessage({
-                                id: 'translate.defaultTextToTranslate',
+                                id: 'roboable.defaultTextToroboable',
                                 default: 'hello',
-                                description: 'hello: the default text to translate'
+                                description: 'hello: the default text to roboable'
                             })
                         },
                         LANGUAGE: {
@@ -135,7 +135,7 @@ class Scratch3Roboable {
                 {
                     opcode: 'getViewerLanguage',
                     text: formatMessage({
-                        id: 'translate.viewerLanguage',
+                        id: 'roboable.viewerLanguage',
                         default: 'language',
                         description: 'the languge of the project viewer'
                     }),
@@ -240,48 +240,48 @@ class Scratch3Roboable {
     }
 
     /**
-     * Translates the text in the translate block to the language specified in the menu.
+     * roboables the text in the roboable block to the language specified in the menu.
      * @param {object} args - the block arguments.
-     * @return {Promise} - a promise that resolves after the response from the translate server.
+     * @return {Promise} - a promise that resolves after the response from the roboable server.
      */
-    getTranslate (args) {
+    getroboable (args) {
         // Don't remake the request if we already have the value.
-        if (this._lastTextTranslated === args.WORDS &&
-            this._lastLangTranslated === args.LANGUAGE) {
-            return this._translateResult;
+        if (this._lastTextroboabled === args.WORDS &&
+            this._lastLangroboabled === args.LANGUAGE) {
+            return this._roboableResult;
         }
 
         const lang = this.getLanguageCodeFromArg(args.LANGUAGE);
 
-        let urlBase = `${serverURL}translate?language=`;
+        let urlBase = `${serverURL}roboable?language=`;
         urlBase += lang;
         urlBase += '&text=';
         urlBase += encodeURIComponent(args.WORDS);
 
         const tempThis = this;
-        const translatePromise = new Promise(resolve => {
+        const roboablePromise = new Promise(resolve => {
             nets({
                 url: urlBase,
                 timeout: serverTimeoutMs
             }, (err, res, body) => {
                 if (err) {
-                    log.warn(`error fetching translate result! ${res}`);
+                    log.warn(`error fetching roboable result! ${res}`);
                     resolve('');
                     return '';
                 }
-                const translated = JSON.parse(body).result;
-                tempThis._translateResult = translated;
-                // Cache what we just translated so we don't keep making the
+                const roboabled = JSON.parse(body).result;
+                tempThis._roboableResult = roboabled;
+                // Cache what we just roboabled so we don't keep making the
                 // same call over and over.
-                tempThis._lastTextTranslated = args.WORDS;
-                tempThis._lastLangTranslated = args.LANGUAGE;
-                resolve(translated);
-                return translated;
+                tempThis._lastTextroboabled = args.WORDS;
+                tempThis._lastLangroboabled = args.LANGUAGE;
+                resolve(roboabled);
+                return roboabled;
             });
 
         });
-        translatePromise.then(translatedText => translatedText);
-        return translatePromise;
+        roboablePromise.then(roboabledText => roboabledText);
+        return roboablePromise;
     }
 }
 module.exports = Scratch3Roboable;
