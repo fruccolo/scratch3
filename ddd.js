@@ -3,6 +3,55 @@ const SERVER_HOST = 'https://localhost:3000';
 class Utilities {
 
   constructor() {}
+  get VOICE_INFO () {
+        return {
+            [ALTO_ID]: {
+                name: formatMessage({
+                    id: 'text2speech.alto',
+                    default: 'alto',
+                    description: 'Name for a voice with ambiguous gender.'
+                }),
+                gender: 'female',
+                playbackRate: 1
+            },
+            [TENOR_ID]: {
+                name: formatMessage({
+                    id: 'text2speech.tenor',
+                    default: 'tenor',
+                    description: 'Name for a voice with ambiguous gender.'
+                }),
+                gender: 'male',
+                playbackRate: 1
+            },
+            [SQUEAK_ID]: {
+                name: formatMessage({
+                    id: 'text2speech.squeak',
+                    default: 'squeak',
+                    description: 'Name for a funny voice with a high pitch.'
+                }),
+                gender: 'female',
+                playbackRate: 1.19 // +3 semitones
+            },
+            [GIANT_ID]: {
+                name: formatMessage({
+                    id: 'text2speech.giant',
+                    default: 'giant',
+                    description: 'Name for a funny voice with a low pitch.'
+                }),
+                gender: 'male',
+                playbackRate: 0.84 // -3 semitones
+            },
+            [KITTEN_ID]: {
+                name: formatMessage({
+                    id: 'text2speech.kitten',
+                    default: 'kitten',
+                    description: 'A baby cat.'
+                }),
+                gender: 'female',
+                playbackRate: 1.41 // +6 semitones
+            }
+        };
+    }
   getInfo() {
     return {
       id: 'roboable',
@@ -14,23 +63,21 @@ class Utilities {
       menuIconURI: icon,
 
       blocks: [
-                {
-                    opcode: 'setPinMode',
-                    text: 'Imposta pin [PIN] come [MOD]',
-                    blockType: BlockType.COMMAND,
-                    arguments: {
-                        PIN: {
-                            type: ArgumentType.STRING,
-                            menu: 'getPin',
-                            defaultValue: '1'
-                        },
-                        MOD: {
-                            type: ArgumentType.STRING,
-                            menu: 'setPinMode',
-                            defaultValue: 'INPUT'
-                        }
-                    }
+        {
+            opcode: 'setPinMode',
+            text: 'Imposta pin [PIN] come [MOD]',
+            blockType: BlockType.COMMAND,
+            arguments: {
+                PIN: {
+                    type: ArgumentType.STRING,
+                    menu: 'getPin'
                 },
+                MOD: {
+                    type: ArgumentType.STRING,
+                    menu: 'setPinMode'
+                }
+            }
+        },
         {
           opcode: 'AccX',
           blockType: Scratch.BlockType.REPORTER,
@@ -110,21 +157,26 @@ class Utilities {
       menus: {
           setPin: {
               acceptReporters: true,
-              items: ["0", "1"]
+              items: this.getVoiceMenu()
           },
           setPinMode: {
               acceptReporters: true,
-              items: ["INPUT", "OUTPUT"]
+              items: this.getVoiceMenu()
           },
           getPin: {
               acceptReporters: true,
-              items: ["1", "2", "3", "4"]
+              items: this.getVoiceMenu()
           }
       }
 
     }
   }
-
+  getVoiceMenu () {
+          return Object.keys(this.VOICE_INFO).map(voiceId => ({
+              text: this.VOICE_INFO[voiceId].name,
+              value: voiceId
+          }));
+      }
   isExactly({A, B}) {
     return A === B;
   }
