@@ -90,13 +90,19 @@ class Utilities {
         },
         {
            opcode: 'whenMakeyKeyPressed',
-           text: 'when key pressed',
-           blockType: Scratch.BlockType.HAT
-
+           text: 'when key pressed [KEY]',
+           blockType: Scratch.BlockType.HAT,
+           arguments: {
+                        KEY: {
+                            type: Scratch.ArgumentType.STRING,
+                            menu: 'KEYMENU',
+                            defaultValue: 'w'
+                        }
+                    }
          }
    ],
    menus: {
-       KEY: {
+       KEYMENU: {
            acceptReporters: true,
            items: [
                {text: 'w', value: 'w'},
