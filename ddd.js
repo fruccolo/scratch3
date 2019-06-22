@@ -93,15 +93,9 @@ class Utilities {
         },
         {
            opcode: 'whenMakeyKeyPressed',
-           text: 'when [KEY] key pressed',
-           blockType: BlockType.HAT,
-           arguments: {
-               KEY: {
-                   type: ArgumentType.STRING,
-                   menu: 'KEY',
-                   defaultValue: 'w'
-               }
-           }
+           text: 'when key pressed',
+           blockType: BlockType.HAT
+
        }
    ]
     };
