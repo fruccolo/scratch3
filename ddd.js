@@ -14,126 +14,25 @@ class Utilities {
       menuIconURI: icon,
 
       blocks: [
-        {
-          opcode: 'isExactly',
 
-          blockType: Scratch.BlockType.BOOLEAN,
 
-          text: 'is [A] exactly [B]?',
-          arguments: {
-            A: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'apple'
-            },
-            B: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'APPLE'
-            }
-          }
-        },
-        {
-          opcode: 'isLessOrEqual',
-
-          blockType: Scratch.BlockType.BOOLEAN,
-
-          text: '[A] <= [B]',
-          arguments: {
-            A: {
-              type: Scratch.ArgumentType.NUMBER
-            },
-            B: {
-              type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 50
-            }
-          }
-        },
-        {
-          opcode: 'isMoreOrEqual',
-
-          blockType: Scratch.BlockType.BOOLEAN,
-
-          text: '[A] >= [B]',
-          arguments: {
-            A: {
-              type: Scratch.ArgumentType.NUMBER
-            },
-            B: {
-              type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 50
-            }
-          }
-        },
-        {
-          opcode: 'trueBlock',
-          blockType: Scratch.BlockType.BOOLEAN,
-          text: 'true'
-        },
-        {
-          opcode: 'falseBlock',
-          blockType: Scratch.BlockType.BOOLEAN,
-          text: 'false'
-        },
-        {
-          opcode: 'exponent',
-
-          blockType: Scratch.BlockType.REPORTER,
-
-          text: '[A] ^ [B]',
-          arguments: {
-            A: {
-              type: Scratch.ArgumentType.NUMBER
-            },
-            B: {
-              type: Scratch.ArgumentType.NUMBER
-            }
-          }
-        },
-        {
-          opcode: 'pi',
-          blockType: Scratch.BlockType.REPORTER,
-          text: 'pi'
-        },
-        {
-          opcode: 'ternaryOperator',
-
-          blockType: Scratch.BlockType.REPORTER,
-
-          text: 'if [A] then [B] else [C]',
-          arguments: {
-            A: {
-              type: Scratch.ArgumentType.BOOLEAN
-            },
-            B: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'banana'
-            },
-            C: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'apple'
-            }
-          }
-        },
-        {
-          opcode: 'letters',
-
-          blockType: Scratch.BlockType.REPORTER,
-
-          text: 'letters [START] to [END] of [STRING]',
-          arguments: {
-            START: {
-              type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 5
-            },
-            END: {
-              type: Scratch.ArgumentType.NUMBER,
-              defaultValue: 7
-            },
-            STRING: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'red apple'
-            }
-          }
-        },
+                {
+                    opcode: 'setPinMode',
+                    text: 'Imposta pin [PIN] come [MODALITA]',
+                    blockType: BlockType.COMMAND,
+                    arguments: {
+                        PIN: {
+                            type: ArgumentType.STRING,
+                            menu: 'getPin',
+                            defaultValue: '1'
+                        },
+                        MODALITA: {
+                            type: ArgumentType.STRING,
+                            menu: 'setPinMode',
+                            defaultValue: 'INPUT'
+                        }
+                    }
+                },
         {
           opcode: 'AccX',
           blockType: Scratch.BlockType.REPORTER,
@@ -208,72 +107,23 @@ class Utilities {
           opcode: 'Connected',
           blockType: Scratch.BlockType.REPORTER,
           text: 'Connesso'
-        },
-        {
-          opcode: 'fetchFrom',
-
-          blockType: Scratch.BlockType.REPORTER,
-
-          text: 'get content from [URL]',
-          arguments: {
-            URL: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'https://api.scratch.mit.edu/users/griffpatch/messages/count'
-            }
-          }
-        },
-        {
-          opcode: 'parseJSON',
-
-          blockType: Scratch.BlockType.REPORTER,
-
-          text: '[PATH] of [JSON_STRING]',
-          arguments: {
-            PATH: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'fruit/apples'
-            },
-            JSON_STRING: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: '{"fruit": {"apples": 2, "bananas": 3}, "total_fruit": 5}'
-            }
-          }
-        },
-        {
-          opcode: 'stringToBoolean',
-
-          blockType: Scratch.BlockType.BOOLEAN,
-
-          text: '[STRING]',
-          arguments: {
-            STRING: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'true'
-            }
-          }
-        },
-        {
-          opcode: 'regexReplace',
-
-          blockType: Scratch.BlockType.REPORTER,
-
-          text: 'replace [STRING] using the rule [REGEX] with [NEWSTRING]',
-          arguments: {
-            STRING: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'bananas are awesome. i like bananas.'
-            },
-            REGEX: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'banana'
-            },
-            NEWSTRING: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'apple'
-            }
-          }
         }
-      ]
+      ],
+      menus: {
+          setPin: {
+              acceptReporters: true,
+              items: ["0", "1"]
+          },
+          setPinMode: {
+              acceptReporters: true,
+              items: ["INPUT", "OUTPUT"]
+          },
+          getPin: {
+              acceptReporters: true,
+              items: ["1", "2", "3", "4"]
+          }
+      }
+
     }
   }
 
