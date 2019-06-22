@@ -180,6 +180,36 @@ class Utilities {
           text: 'Magnetometro Z'
         },
         {
+          opcode: 'D1',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Digitale 1'
+        },
+        {
+          opcode: 'D2',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Digitale 2'
+        },
+        {
+          opcode: 'D3',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Digitale 3'
+        },
+        {
+          opcode: 'D4',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Digitale 4'
+        },
+        {
+          opcode: 'Battery',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Batteria %'
+        },
+        {
+          opcode: 'Connected',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Connesso'
+        },
+        {
           opcode: 'fetchFrom',
 
           blockType: Scratch.BlockType.REPORTER,
