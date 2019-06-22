@@ -103,49 +103,13 @@ class Utilities {
         }
       ],
       menus: {
-          setPin: [
-            {
-              value: "0",
-              text:"0"
-            },
+          getPin: {
             {
               value: "1",
               text:"1"
             }
-          ],
-
-          setPinMode: [
-            {
-              value: "INPUT",
-              text:"input"
-            },
-            {
-              value: "OUTPUT",
-              text:"output"
-            }
-          ],
-          getPin: [
-            {
-              value: "1",
-              text:"1"
-            },
-            {
-              value: "2",
-              text:"2"
-            }
-            ,
-            {
-              value: "3",
-              text:"3"
-            }
-            ,
-            {
-              value: "4",
-              text:"4"
-            }
-          ]
+          }
       }
-
     }
   }
 
