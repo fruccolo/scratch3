@@ -92,76 +92,76 @@ class Utilities {
           text: 'Connesso'
         },
         {
-                     opcode: 'whenMakeyKeyPressed',
-                     text: formatMessage({
-                         id: 'makeymakey.whenKeyPressed',
-                         default: 'when [KEY] key pressed',
-                         description: 'when a keyboard key is pressed'
-                     }),
-                     blockType: BlockType.HAT,
-                     arguments: {
-                         KEY: {
-                             type: ArgumentType.STRING,
-                             menu: 'KEY',
-                             defaultValue: 'space'
-                         }
-                     }
-                 },
+           opcode: 'whenMakeyKeyPressed',
+           text: formatMessage({
+               id: 'makeymakey.whenKeyPressed',
+               default: 'when [KEY] key pressed',
+               description: 'when a keyboard key is pressed'
+           }),
+           blockType: BlockType.HAT,
+           arguments: {
+               KEY: {
+                   type: ArgumentType.STRING,
+                   menu: 'KEY',
+                   defaultValue: 'space'
+               }
+           }
+       },
 
-             ],
-             menus: {
-                 KEY: {
-                     acceptReporters: true,
-                     items: [
-                         {
-                             text: formatMessage({
-                                 id: 'makeymakey.spaceKey',
-                                 default: 'space',
-                                 description: 'The space key on a computer keyboard.'
-                             }),
-                             value: KEY_ID_SPACE
-                         },
-                         {
-                             text: formatMessage({
-                                 id: 'makeymakey.upArrow',
-                                 default: 'up arrow',
-                                 description: 'The up arrow key on a computer keyboard.'
-                             }),
-                             value: KEY_ID_UP
-                         },
-                         {
-                             text: formatMessage({
-                                 id: 'makeymakey.downArrow',
-                                 default: 'down arrow',
-                                 description: 'The down arrow key on a computer keyboard.'
-                             }),
-                             value: KEY_ID_DOWN
-                         },
-                         {
-                             text: formatMessage({
-                                 id: 'makeymakey.rightArrow',
-                                 default: 'right arrow',
-                                 description: 'The right arrow key on a computer keyboard.'
-                             }),
-                             value: KEY_ID_RIGHT
-                         },
-                         {
-                             text: formatMessage({
-                                 id: 'makeymakey.leftArrow',
-                                 default: 'left arrow',
-                                 description: 'The left arrow key on a computer keyboard.'
-                             }),
-                             value: KEY_ID_LEFT
-                         },
-                         {text: 'w', value: 'w'},
-                         {text: 'a', value: 'a'},
-                         {text: 's', value: 's'},
-                         {text: 'd', value: 'd'},
-                         {text: 'f', value: 'f'},
-                         {text: 'g', value: 'g'}
-                     ]
-                 }
-             }
+   ],
+   menus: {
+       KEY: {
+           acceptReporters: true,
+           items: [
+               {
+                   text: formatMessage({
+                       id: 'makeymakey.spaceKey',
+                       default: 'space',
+                       description: 'The space key on a computer keyboard.'
+                   }),
+                   value: KEY_ID_SPACE
+               },
+               {
+                   text: formatMessage({
+                       id: 'makeymakey.upArrow',
+                       default: 'up arrow',
+                       description: 'The up arrow key on a computer keyboard.'
+                   }),
+                   value: KEY_ID_UP
+               },
+               {
+                   text: formatMessage({
+                       id: 'makeymakey.downArrow',
+                       default: 'down arrow',
+                       description: 'The down arrow key on a computer keyboard.'
+                   }),
+                   value: KEY_ID_DOWN
+               },
+               {
+                   text: formatMessage({
+                       id: 'makeymakey.rightArrow',
+                       default: 'right arrow',
+                       description: 'The right arrow key on a computer keyboard.'
+                   }),
+                   value: KEY_ID_RIGHT
+               },
+               {
+                   text: formatMessage({
+                       id: 'makeymakey.leftArrow',
+                       default: 'left arrow',
+                       description: 'The left arrow key on a computer keyboard.'
+                   }),
+                   value: KEY_ID_LEFT
+               },
+               {text: 'w', value: 'w'},
+               {text: 'a', value: 'a'},
+               {text: 's', value: 's'},
+               {text: 'd', value: 'd'},
+               {text: 'f', value: 'f'},
+               {text: 'g', value: 'g'}
+           ]
+       }
+   }
     };
   }
 
