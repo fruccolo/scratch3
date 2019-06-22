@@ -15,7 +15,7 @@ class Utilities {
       menuIconURI: icon,
 
       blocks: [
-        
+
         {
           opcode: 'AccX',
           blockType: Scratch.BlockType.REPORTER,
@@ -162,7 +162,7 @@ class Utilities {
                      ]
                  }
              }
-    }
+    };
   }
 
   isExactly({A, B}) {
