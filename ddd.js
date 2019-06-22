@@ -17,16 +17,12 @@ class Utilities {
       blocks: [
         {
             opcode: 'setPinMode',
-            text: 'Imposta pin [PIN] come [MOD]',
+            text: 'Imposta pin [PIN] ',
             blockType: BlockType.COMMAND,
             arguments: {
                 PIN: {
                     type: ArgumentType.STRING,
                     menu: 'getPin'
-                },
-                MOD: {
-                    type: ArgumentType.STRING,
-                    menu: 'setPinMode'
                 }
             }
         },
