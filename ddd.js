@@ -3,55 +3,7 @@ const SERVER_HOST = 'https://localhost:3000';
 class Utilities {
 
   constructor() {}
-  get VOICE_INFO () {
-        return {
-            [ALTO_ID]: {
-                name: formatMessage({
-                    id: 'text2speech.alto',
-                    default: 'alto',
-                    description: 'Name for a voice with ambiguous gender.'
-                }),
-                gender: 'female',
-                playbackRate: 1
-            },
-            [TENOR_ID]: {
-                name: formatMessage({
-                    id: 'text2speech.tenor',
-                    default: 'tenor',
-                    description: 'Name for a voice with ambiguous gender.'
-                }),
-                gender: 'male',
-                playbackRate: 1
-            },
-            [SQUEAK_ID]: {
-                name: formatMessage({
-                    id: 'text2speech.squeak',
-                    default: 'squeak',
-                    description: 'Name for a funny voice with a high pitch.'
-                }),
-                gender: 'female',
-                playbackRate: 1.19 // +3 semitones
-            },
-            [GIANT_ID]: {
-                name: formatMessage({
-                    id: 'text2speech.giant',
-                    default: 'giant',
-                    description: 'Name for a funny voice with a low pitch.'
-                }),
-                gender: 'male',
-                playbackRate: 0.84 // -3 semitones
-            },
-            [KITTEN_ID]: {
-                name: formatMessage({
-                    id: 'text2speech.kitten',
-                    default: 'kitten',
-                    description: 'A baby cat.'
-                }),
-                gender: 'female',
-                playbackRate: 1.41 // +6 semitones
-            }
-        };
-    }
+
   getInfo() {
     return {
       id: 'roboable',
@@ -154,29 +106,72 @@ class Utilities {
           text: 'Connesso'
         }
       ],
+        menus: {
+            // Required: an identifier for this menu, unique within this extension.
+            menuA: [
+                // Static menu: list items which should appear in the menu.
+                {
+                    // Required: the value of the menu item when it is chosen.
+                    value: 'itemId1',
+                    // Optional: the human-readable label for this item.
+                    // Use `value` as the text if this is absent.
+                    text: 'Item One'
+                },
+                // The simplest form of a list item is a string which will be used as
+                // both value and text.
+                'itemId2'
+            ],
+            // Dynamic menu: a string naming a function which returns an array as above.
+            // Called each time the menu is opened.
+            menuB: 'getItemsForMenuB'
+        },
       menus: {
-          setPin: {
-              acceptReporters: true,
-              items: this.getVoiceMenu()
-          },
-          setPinMode: {
-              acceptReporters: true,
-              items: this.getVoiceMenu()
-          },
-          getPin: {
-              acceptReporters: true,
-              items: this.getVoiceMenu()
-          }
+          setPin: [
+            {
+              value: "0",
+              text:"0"
+            },
+            {
+              value: "1",
+              text:"1"
+            }
+          ],
+
+          setPinMode: [
+            {
+              value: "INPUT",
+              text:"input"
+            },
+            {
+              value: "OUTPUT",
+              text:"output"
+            }
+          ],
+          getPin: [
+            {
+              value: "1",
+              text:"1"
+            },
+            {
+              value: "2",
+              text:"2"
+            }
+            ,
+            {
+              value: "3",
+              text:"3"
+            }
+            ,
+            {
+              value: "4",
+              text:"4"
+            }
+          ]
       }
 
     }
   }
-  getVoiceMenu () {
-          return Object.keys(this.VOICE_INFO).map(voiceId => ({
-              text: this.VOICE_INFO[voiceId].name,
-              value: voiceId
-          }));
-      }
+
   isExactly({A, B}) {
     return A === B;
   }
