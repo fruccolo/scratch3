@@ -99,10 +99,10 @@ class Scratch3Roboable {
             Math.floor(Math.random() * this._supportedLanguages.length)].value;
 
         return {
-            id: 'translate',
+            id: 'roboable',
             name: formatMessage({
-                id: 'translate.categoryName',
-                default: 'Translate',
+                id: 'roboable.categoryName',
+                default: 'Roboable',
                 description: 'Name of extension that adds translate blocks'
             }),
             blockIconURI: blockIconURI,
