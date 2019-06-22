@@ -99,7 +99,7 @@ class Utilities {
                KEY: {
                    type: ArgumentType.STRING,
                    menu: 'KEY',
-                   defaultValue: 'space'
+                   defaultValue: 'w'
                }
            }
        }
