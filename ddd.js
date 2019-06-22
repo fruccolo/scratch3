@@ -11,11 +11,8 @@ class Utilities {
       colour: '#F39869',
       colourSecondary: '#7CB300',
       colourTertiary: '#689FFF',
-
       menuIconURI: icon,
-
       blocks: [
-
         {
           opcode: 'AccX',
           blockType: Scratch.BlockType.REPORTER,
