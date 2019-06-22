@@ -91,7 +91,7 @@ class Utilities {
         {
            opcode: 'whenMakeyKeyPressed',
            text: 'when key pressed',
-           blockType: BlockType.HAT
+           blockType: Scratch.BlockType.HAT
 
        }
    ]
