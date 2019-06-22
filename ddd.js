@@ -93,8 +93,21 @@ class Utilities {
            text: 'when key pressed',
            blockType: Scratch.BlockType.HAT
 
-       }
-   ]
+         }
+   ],
+   menus: {
+       KEY: {
+           acceptReporters: true,
+           items: [
+               {text: 'w', value: 'w'},
+               {text: 'a', value: 'a'},
+               {text: 's', value: 's'},
+               {text: 'd', value: 'd'},
+               {text: 'f', value: 'f'},
+               {text: 'g', value: 'g'}
+           ]
+         }
+        }
     };
   }
 
