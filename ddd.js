@@ -7,7 +7,7 @@ class Utilities {
     return {
       id: 'roboable',
       name: 'Roboable',
-      colour: '#F94C00',
+      colour: '#F39869',
       colourSecondary: '#7CB300',
       colourTertiary: '#689FFF',
 
