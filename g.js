@@ -242,4 +242,4 @@ class SomeBlocks {
             LETTER: result
         });
     };
-}
+}module.exports = Scratch3SomeBlocks;
