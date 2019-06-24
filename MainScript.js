@@ -151,8 +151,6 @@ var data;
               ["r", "Digital 4", "D4"],
               ["r", "Battery","Battery"],
               ["r", "Connected","Connected"]
-
-
           ],
           "menus":{
               "setPinMode":["INPUT","OUTPUT"],
