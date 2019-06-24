@@ -1,6 +1,5 @@
 const formatMessage = require('format-message');
 const nets = require('nets');
-
 const ArgumentType = require('../../extension-support/argument-type');
 const BlockType = require('../../extension-support/block-type');
 const Cast = require('../../util/cast');
