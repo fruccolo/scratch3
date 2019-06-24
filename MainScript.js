@@ -125,10 +125,6 @@ var data;
 	};
     // Block and block menu descriptions
     var descriptor = {
-
-          "extensionName": "ROBOABLE",
-          "extensionPort": 3000,
-          "useHTTP": true,
           "blocks": [
               [" ", "Connect to Roboable","connect"],
               [" ", "Start/Stop Streaming","streaming"],
